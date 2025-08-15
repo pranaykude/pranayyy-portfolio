@@ -1,0 +1,521 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Dark Modern Theme */
+
+@layer base {
+  :root {
+    /* Dark theme colors */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 35% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 35% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 65%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 222 25% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 25% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 65%;
+    --accent-foreground: 222 47% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 25% 20%;
+    --input: 222 25% 20%;
+    --ring: 217 91% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient variables */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 65%) 0%, hsl(230 85% 75%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(222 35% 11%) 0%, hsl(222 25% 20%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 7%) 0%, hsl(222 35% 11%) 50%, hsl(217 91% 65% / 0.1) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(217 91% 65% / 0.1) 0%, hsl(230 85% 75% / 0.05) 100%);
+    --gradient-mesh: conic-gradient(from 230.29deg at 51.63% 52.16%, hsl(217 91% 65% / 0.2) 0deg, hsl(230 85% 75% / 0.1) 67.5deg, hsl(222 47% 7% / 0.05) 198.75deg, hsl(217 91% 65% / 0.2) 251.25deg, hsl(230 85% 75% / 0.3) 301.88deg, hsl(217 91% 65% / 0.2) 360deg);
+    
+    /* Advanced shadows */
+    --shadow-primary: 0 10px 30px -10px hsl(217 91% 65% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(222 47% 7% / 0.8);
+    --shadow-glass: 0 8px 32px 0 hsl(222 47% 7% / 0.37);
+    --shadow-glow: 0 0 40px hsl(217 91% 65% / 0.4);
+    --shadow-intense: 0 25px 50px -12px hsl(217 91% 65% / 0.5);
+    
+    /* Animation variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1, "liga" 1;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  /* Enhanced heading styles */
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    letter-spacing: -0.035em;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+    letter-spacing: -0.025em;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-semibold;
+    letter-spacing: -0.02em;
+  }
+
+  /* Code and technical text */
+  code, pre {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  /* Enhanced Modern Hero Styles */
+  .hero-text {
+    @apply font-display text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9];
+    background: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 40%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 8px 32px hsl(217 91% 65% / 0.6));
+    text-shadow: 0 0 60px hsl(var(--primary) / 0.5);
+    letter-spacing: -0.05em;
+    font-weight: 900;
+  }
+
+  .hero-subtitle {
+    @apply font-display text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground leading-relaxed;
+    animation: slideInUp 0.8s ease-out 0.3s both;
+    letter-spacing: -0.015em;
+  }
+
+  .hero-description {
+    @apply font-sans text-lg md:text-xl leading-relaxed text-muted-foreground/90;
+    animation: slideInUp 0.8s ease-out 0.5s both;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* Portfolio Specific Typography */
+  .portfolio-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-black;
+    background: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 50%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+
+  .project-title {
+    @apply font-display text-2xl md:text-3xl font-bold text-foreground;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .project-subtitle {
+    @apply font-display text-lg font-medium text-primary;
+    letter-spacing: -0.015em;
+  }
+
+  .section-label {
+    @apply font-display text-sm font-semibold uppercase tracking-wider text-primary;
+    letter-spacing: 0.1em;
+  }
+
+  /* Glassmorphism Effects */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(217 91% 65% / 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-subtle {
+    background: hsl(222 35% 11% / 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(217 91% 65% / 0.1);
+  }
+
+  /* Floating Elements */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+
+  .floating-slow {
+    animation: floatSlow 8s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  /* Modern Buttons */
+  .btn-modern {
+    @apply relative px-8 py-4 rounded-2xl font-semibold;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    transition: var(--transition-elastic);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-modern:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-intense);
+  }
+
+  .btn-modern:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
+  .btn-glass {
+    @apply relative px-8 py-4 rounded-2xl font-semibold;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(217 91% 65% / 0.3);
+    color: hsl(var(--foreground));
+    transition: var(--transition-elastic);
+  }
+
+  .btn-glass:hover {
+    background: hsl(217 91% 65% / 0.2);
+    border-color: hsl(217 91% 65% / 0.5);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Profile Image Effects */
+  .profile-container {
+    position: relative;
+  }
+
+  .profile-glow {
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-mesh);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse-glow 4s ease-in-out infinite;
+    filter: blur(20px);
+  }
+
+  .profile-rings {
+    position: absolute;
+    inset: -40px;
+    border: 2px solid hsl(217 91% 65% / 0.2);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+  }
+
+  .profile-rings::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border: 1px solid hsl(230 85% 75% / 0.1);
+    border-radius: 50%;
+    animation: rotate-reverse 15s linear infinite;
+  }
+
+  /* Status Cards */
+  .status-card {
+    @apply absolute text-sm font-medium px-4 py-2 rounded-xl;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(217 91% 65% / 0.2);
+    box-shadow: var(--shadow-glass);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  /* Mesh Background */
+  .mesh-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.1;
+    animation: mesh-shift 20s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Advanced Animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    66% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotate-reverse {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes mesh-shift {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px);
+    }
+    25% {
+      transform: translateX(20px) translateY(-20px);
+    }
+    50% {
+      transform: translateX(-10px) translateY(10px);
+    }
+    75% {
+      transform: translateX(15px) translateY(15px);
+    }
+  }
+
+  @keyframes fillProgress {
+    from { width: 0%; }
+    to { width: var(--progress-width); }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Animation Classes */
+  .animate-fade-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-glass {
+    background: var(--gradient-glass);
+  }
+
+  .bg-mesh {
+    background: var(--gradient-mesh);
+  }
+
+  /* Utility Classes */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-primary);
+  }
+
+  /* Skill progress bars */
+  .skill-bar {
+    @apply relative h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full rounded-full;
+    background: var(--gradient-primary);
+    animation: fillProgress 2s ease-out forwards;
+  }
+
+  /* Animated underlines */
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 rounded-full;
+    content: '';
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+}
