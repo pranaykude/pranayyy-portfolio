@@ -74,9 +74,9 @@ link  :-  https://pranaycode.online/
 
 Feel free to reach out for opportunities or collaborations!
 
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn]
-- GitHub: [Your GitHub]
+- Email: [pranaykude990@gmail.com]
+- LinkedIn: [www.linkedin.com/in/pranay-kude-5ba242265]
+- GitHub: [https://github.com/pranaykude]
 
 ## License
 
